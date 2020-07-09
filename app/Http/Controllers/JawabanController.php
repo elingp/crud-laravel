@@ -17,6 +17,7 @@ class JawabanController extends Controller
     {
         $jawaban = Jawaban::find_by_id($pertanyaan_id);
         $pertanyaan = Pertanyaan::find_by_id($pertanyaan_id);
+        $pertanyaan = $pertanyaan[0];
         return view('items.jawaban.index', ['jawaban' => $jawaban, 'pertanyaan' => $pertanyaan]);
     }
 
