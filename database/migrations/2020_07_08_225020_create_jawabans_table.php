@@ -20,7 +20,7 @@ class CreateJawabansTable extends Migration
             $table->tinyInteger('is_selected');
             $table->unsignedBigInteger('penjawab_id');
             $table->unsignedBigInteger('pertanyaan_id');
-            $table->foreign('pertanyaan_id')->references('id')->on('pertanyaans');
+            $table->foreign('pertanyaan_id')->references('id')->on('pertanyaans')->onDelete('cascade');
         });
     }
 

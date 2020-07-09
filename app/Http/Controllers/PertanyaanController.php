@@ -61,9 +61,11 @@ class PertanyaanController extends Controller
      * @param  \App\Pertanyaan  $pertanyaan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pertanyaan $pertanyaan)
+    public function edit($id)
     {
-        //
+        $pertanyaan = Pertanyaan::find_by_id($id);
+        $pertanyaan = $pertanyaan[0];
+        return view('items.pertanyaan.edit', ['pertanyaan' => $pertanyaan]);
     }
 
     /**
@@ -73,9 +75,10 @@ class PertanyaanController extends Controller
      * @param  \App\Pertanyaan  $pertanyaan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pertanyaan $pertanyaan)
+    public function update(Request $request, $id)
     {
-        //
+        Pertanyaan::update($request->all(), $id);
+        return \redirect('/pertanyaan');
     }
 
     /**
@@ -84,8 +87,8 @@ class PertanyaanController extends Controller
      * @param  \App\Pertanyaan  $pertanyaan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pertanyaan $pertanyaan)
+    public function destroy($id)
     {
-        //
+
     }
 }

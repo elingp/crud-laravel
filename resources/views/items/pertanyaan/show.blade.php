@@ -9,6 +9,13 @@
     </p>
     <small>Written on {{ $pertanyaan->created_at }} </small>
     <small>Updated on {{ $pertanyaan->updated_at }} </small>
+    <br>
+    <a href="/pertanyaan/{{ $pertanyaan->id }}/edit" class="btn btn-secondary">Edit</a>
+    <form action="/pertanyaan/{id}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button class="btn btn-danger">Hapus</button>
+    </form>
     <h1 class="h4 mb-2 mt-4 text-gray-800"><a href="/jawaban/{{ $pertanyaan->id }}">Jawaban</a></h1>
     @if (count($jawaban) > 0)
         @foreach ($jawaban as $item)

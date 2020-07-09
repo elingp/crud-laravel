@@ -21,4 +21,10 @@ class Pertanyaan
     {
         return DB::table('pertanyaans')->where('id', $id)->get();
     }
+
+    public static function update($data, $id)
+    {
+        unset($data['_token'], $data['id'], $data['_method']);
+        DB::table('pertanyaans')->where('id', $id)->update($data);
+    }
 }
