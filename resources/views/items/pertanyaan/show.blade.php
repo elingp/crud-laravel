@@ -2,7 +2,14 @@
 
 @section('content')
 <div class="m-3">
-    <h1 class="h4 mb-2 mt-4 text-gray-800">Jawaban</h1>
+    <h1 class="h1 mb-3 text-gray-800">{{ $pertanyaan->judul }}</h1>
+    <hr>
+    <p>
+        {{ $pertanyaan->isi }}
+    </p>
+    <small>Written on {{ $pertanyaan->created_at }} </small>
+    <small>Updated on {{ $pertanyaan->updated_at }} </small>
+    <h1 class="h4 mb-2 mt-4 text-gray-800"><a href="/jawaban/{{ $pertanyaan->id }}">Jawaban</a></h1>
     @if (count($jawaban) > 0)
         @foreach ($jawaban as $item)
             <p>

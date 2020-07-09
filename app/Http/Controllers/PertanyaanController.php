@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jawaban;
 use App\Pertanyaan;
 use Illuminate\Http\Request;
 
@@ -46,9 +47,12 @@ class PertanyaanController extends Controller
      * @param  \App\Pertanyaan  $pertanyaan
      * @return \Illuminate\Http\Response
      */
-    public function show(Pertanyaan $pertanyaan)
+    public function show($id)
     {
-        //
+        $jawaban = Jawaban::find_by_id($id);
+        $pertanyaan = Pertanyaan::find_by_id($id);
+        $pertanyaan = $pertanyaan[0];
+        return view('items.pertanyaan.show', ['jawaban' => $jawaban, 'pertanyaan' => $pertanyaan]);
     }
 
     /**
