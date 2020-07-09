@@ -14,7 +14,8 @@ class JawabanController extends Controller
      */
     public function index()
     {
-        //
+        $jawaban = Jawaban::get_all();
+        return view('items.jawaban', ['jawaban' => $jawaban]);
     }
 
     /**
