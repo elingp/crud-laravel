@@ -20,3 +20,10 @@ Route::get('/', function () {
 Route::get('/data-tables', function () {
     return view('items.data-tables');
 });
+
+Route::get('/pertanyaan', 'PertanyaanController@index');
+Route::get('/pertanyaan/create', 'PertanyaanController@create');
+Route::post('/pertanyaan', 'PertanyaanController@store');
+
+Route::get('/jawaban/{pertanyaan_id}', 'JawabanController@index');
+Route::post('/jawaban/{pertanyaan_id}', 'JawabanController@store');

@@ -14,7 +14,8 @@ class PertanyaanController extends Controller
      */
     public function index()
     {
-        //
+        $pertanyaan = Pertanyaan::get_all();
+        return view('items.pertanyaan.index', ['pertanyaan' => $pertanyaan]);
     }
 
     /**
@@ -24,7 +25,7 @@ class PertanyaanController extends Controller
      */
     public function create()
     {
-        //
+        return view('items.pertanyaan.create');
     }
 
     /**
@@ -35,7 +36,8 @@ class PertanyaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pertanyaan::save($request->all());
+        return \redirect('/pertanyaan');
     }
 
     /**

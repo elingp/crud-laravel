@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
-class Pertanyaan extends Model
+class Pertanyaan
 {
     public static function get_all()
     {
@@ -13,7 +13,7 @@ class Pertanyaan extends Model
 
     public static function save($data)
     {
-        unset($data['_tokens']);
+        unset($data['_token']);
         DB::table('pertanyaans')->insert($data);
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jawaban;
+use App\Pertanyaan;
 use Illuminate\Http\Request;
 
 class JawabanController extends Controller
@@ -12,10 +13,11 @@ class JawabanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($pertanyaan_id)
     {
-        $jawaban = Jawaban::get_all();
-        return view('items.jawaban', ['jawaban' => $jawaban]);
+        $jawaban = Jawaban::find_by_id($pertanyaan_id);
+        $pertanyaan = Pertanyaan::find_by_id($pertanyaan_id);
+        return view('items.jawaban.index', ['jawaban' => $jawaban, 'pertanyaan' => $pertanyaan]);
     }
 
     /**
@@ -34,9 +36,10 @@ class JawabanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $pertanyaan_id)
     {
-        //
+        Jawaban::save($request->all());
+        return redirect('/jawaban/' . $pertanyaan_id);
     }
 
     /**
