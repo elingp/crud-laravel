@@ -30,6 +30,6 @@ class Pertanyaan
 
     public static function delete($id)
     {
-        $delete = DB::table('pertanyaans')->where('id', $id)->delete();
+        DB::table('pertanyaans')->where('id', $id)->delete();
     }
 }
