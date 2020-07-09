@@ -11,7 +11,7 @@
     <small>Updated on {{ $pertanyaan->updated_at }} </small>
     <br>
     <a href="/pertanyaan/{{ $pertanyaan->id }}/edit" class="btn btn-secondary">Edit</a>
-    <form action="/pertanyaan/{id}" method="POST">
+    <form action="/pertanyaan/{{ $pertanyaan->id }}" method="POST">
         @csrf
         @method('DELETE')
         <button class="btn btn-danger">Hapus</button>

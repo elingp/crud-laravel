@@ -89,6 +89,7 @@ class PertanyaanController extends Controller
      */
     public function destroy($id)
     {
-
+        Pertanyaan::delete($id);
+        return \redirect('/pertanyaan');
     }
 }

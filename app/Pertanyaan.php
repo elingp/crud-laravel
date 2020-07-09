@@ -27,4 +27,9 @@ class Pertanyaan
         unset($data['_token'], $data['id'], $data['_method']);
         DB::table('pertanyaans')->where('id', $id)->update($data);
     }
+
+    public static function delete($id)
+    {
+        $delete = DB::table('pertanyaans')->where('id', $id)->delete();
+    }
 }

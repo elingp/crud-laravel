@@ -40,7 +40,7 @@ class JawabanController extends Controller
     public function store(Request $request, $pertanyaan_id)
     {
         Jawaban::save($request->all());
-        return redirect('/jawaban/' . $pertanyaan_id);
+        return redirect('/pertanyaan/' . $pertanyaan_id);
     }
 
     /**
